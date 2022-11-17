@@ -47,14 +47,14 @@ void loop() {
     // change the resistance on this channel from min to max:
     for (int level = 0; level < 255; level++) {
       digitalPotWrite(channel, level);
-      delay(10);
+      _delay_ms(10);
     }
     // wait a second at the top:
-    delay(100);
+    _delay_ms(100);
     // change the resistance on this channel from max to min:
     for (int level = 0; level < 255; level++) {
       digitalPotWrite(channel, 255 - level);
-      delay(10);
+      _delay_ms(10);
     }
   }
 
@@ -63,11 +63,11 @@ void loop() {
 void digitalPotWrite(int address, int value) {
   // take the SS pin low to select the chip:
   digitalWrite(slaveSelectPin, LOW);
-  delay(100);
+  _delay_ms(100);
   // send in the address and value via SPI:
   SPI.transfer(address);
   SPI.transfer(value);
-  delay(100);
+  _delay_ms(100);
   // take the SS pin high to de-select the chip:
   digitalWrite(slaveSelectPin, HIGH);
 }

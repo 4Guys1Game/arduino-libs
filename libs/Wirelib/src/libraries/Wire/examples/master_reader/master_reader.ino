@@ -25,5 +25,5 @@ void loop() {
     Serial.print(c);         // print the character
   }
 
-  delay(500);
+  _delay_ms(500);
 }

@@ -95,7 +95,7 @@ void setup() {
     pinMode(MAX31865_READY_PIN ,INPUT_PULLUP);
   #endif
 
-  while (!Serial) { delay(10); }
+  while (!Serial) { _delay_ms(10); }
   Serial.begin(115200);
   Serial.println("SPI Adafruit_BusIO_RegisterBits test on MAX31865");
 
@@ -109,7 +109,7 @@ void setup() {
   fi50hz_bit.write(1); // Set filter to 50Hz mode.
   faultR_bit.write(1); // Clear faults.
   bias_bit.write(1);   // In automode we want to have the bias current always on.
-  delay(5);            // Wait until bias current settles down.
+  _delay_ms(5);            // Wait until bias current settles down.
                        // 10.5 time constants of the input RC network is required.
                        // 10ms worst case for 10kω reference resistor and a 0.1µF capacitor across the RTD inputs.
                        // Adafruit Module has 0.1µF and only 430/4300ω So here 0.43/4.3ms
@@ -118,13 +118,13 @@ void setup() {
   // Test the READY_PIN
   #if (defined( MAX31865_READY_PIN ) && (MAX31865_READY_PIN != -1))
     int i = 0;
-    while (digitalRead(MAX31865_READY_PIN) && i++ <= 100) { delay(1); }
+    while (digitalRead(MAX31865_READY_PIN) && i++ <= 100) { _delay_ms(1); }
     if (i >= 100) {
       Serial.print("ERROR: Max31865 Pin detection does not work. PIN:");
       Serial.println(MAX31865_READY_PIN);
     }
   #else
-    delay(100);
+    _delay_ms(100);
   #endif
 
   // Set ratio range.
@@ -143,7 +143,7 @@ void loop() {
     if (!digitalRead(MAX31865_READY_PIN))
   #else
     // Warant conversion is ready.
-    delay(21); // 21ms for 50Hz-mode. 19ms in 60Hz-mode.
+    _delay_ms(21); // 21ms for 50Hz-mode. 19ms in 60Hz-mode.
   #endif
     {
       // Read ratio, calculate temperature, scale, filter and print.
@@ -153,7 +153,7 @@ void loop() {
     }
 
   // Do something else.
-  //delay(15000);
+  //_delay_ms(15000);
 }
 
 

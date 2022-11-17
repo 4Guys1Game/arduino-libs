@@ -277,7 +277,7 @@ int USB_Send(u8 ep, const void* d, int len)
 		{
 			if (!(--timeout))
 				return -1;
-			delay(1);
+			_delay_ms(1);
 			continue;
 		}
 
@@ -717,8 +717,8 @@ static inline void USB_ClockEnable()
 
 	// Some tests on specific versions of macosx (10.7.3), reported some
 	// strange behaviors when the board is reset using the serial
-	// port touch at 1200 bps. This delay fixes this behavior.
-	delay(1);
+	// port touch at 1200 bps. This _delay_ms fixes this behavior.
+	_delay_ms(1);
 #if defined(OTGPADE)
 	USBCON = (USBCON & ~(1<<FRZCLK)) | (1<<OTGPADE);	// start USB clock, enable VBUS Pad
 #else
@@ -793,7 +793,7 @@ ISR(USB_GEN_vect)
 u8 USBConnected()
 {
 	u8 f = UDFNUML;
-	delay(3);
+	_delay_ms(3);
 	return f != UDFNUML;
 }
 

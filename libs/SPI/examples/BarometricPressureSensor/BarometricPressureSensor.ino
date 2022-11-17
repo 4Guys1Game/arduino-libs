@@ -52,7 +52,7 @@ void setup() {
   writeRegister(0x01, 0x03);
   writeRegister(0x03, 0x02);
   // give the sensor time to set up:
-  delay(100);
+  _delay_ms(100);
 }
 
 void loop() {

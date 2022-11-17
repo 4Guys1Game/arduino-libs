@@ -19,7 +19,7 @@ void setup() {
 }
 
 void loop() {
-  delay(100);
+  _delay_ms(100);
 }
 
 // function that executes whenever data is received from master

@@ -9,7 +9,7 @@ Adafruit_SPIDevice *spi_dev = NULL; // new Adafruit_SPIDevice(SPIDEVICE_CS);
 Adafruit_I2CDevice *i2c_dev = new Adafruit_I2CDevice(I2C_ADDRESS);
 
 void setup() {
-  while (!Serial) { delay(10); }
+  while (!Serial) { _delay_ms(10); }
   Serial.begin(115200);
   Serial.println("I2C or SPI device register test");
 

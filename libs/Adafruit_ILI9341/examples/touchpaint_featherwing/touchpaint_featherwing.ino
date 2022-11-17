@@ -76,7 +76,7 @@ int oldcolor, currentcolor;
 void setup(void) {
   Serial.begin(115200);
 
-  delay(10);
+  _delay_ms(10);
   Serial.println("FeatherWing TFT");
   if (!ts.begin()) {
     Serial.println("Couldn't start touchscreen controller");

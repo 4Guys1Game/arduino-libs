@@ -56,5 +56,5 @@ void loop() {
   ***/
 
 
-  delay(100);
+  _delay_ms(100);
 }

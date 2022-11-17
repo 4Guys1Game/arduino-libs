@@ -25,5 +25,5 @@ void loop() {
   Wire.endTransmission();    // stop transmitting
 
   x++;
-  delay(500);
+  _delay_ms(500);
 }

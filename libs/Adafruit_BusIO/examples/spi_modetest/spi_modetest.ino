@@ -6,7 +6,7 @@ Adafruit_SPIDevice spi_dev = Adafruit_SPIDevice(SPIDEVICE_CS, 100000, SPI_BITORD
 
 
 void setup() {
-  while (!Serial) { delay(10); }
+  while (!Serial) { _delay_ms(10); }
   Serial.begin(115200);
   Serial.println("SPI device mode test");
 
@@ -24,6 +24,6 @@ void loop() {
     spi_dev.read(&i, 1, i);
     Serial.print("/"); Serial.print(i, HEX);
     Serial.print(", ");
-    delay(25);
+    _delay_ms(25);
   }
 }

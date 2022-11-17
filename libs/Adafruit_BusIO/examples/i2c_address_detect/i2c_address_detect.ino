@@ -3,7 +3,7 @@
 Adafruit_I2CDevice i2c_dev = Adafruit_I2CDevice(0x10);
 
 void setup() {
-  while (!Serial) { delay(10); }
+  while (!Serial) { _delay_ms(10); }
   Serial.begin(115200);
   Serial.println("I2C address detection test");
 

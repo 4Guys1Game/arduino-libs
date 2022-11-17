@@ -5,7 +5,7 @@ Adafruit_SPIDevice spi_dev = Adafruit_SPIDevice(SPIDEVICE_CS);
 
 
 void setup() {
-  while (!Serial) { delay(10); }
+  while (!Serial) { _delay_ms(10); }
   Serial.begin(115200);
   Serial.println("SPI device read and write test");
 

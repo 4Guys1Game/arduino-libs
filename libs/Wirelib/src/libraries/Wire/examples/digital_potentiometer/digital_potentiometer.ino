@@ -29,6 +29,6 @@ void loop() {
   if (val == 64) { // if reached 64th position (max)
     val = 0;    // start over from lowest value
   }
-  delay(500);
+_delay_ms(500);
 }
 

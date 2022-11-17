@@ -31,7 +31,7 @@ void loop() {
   Wire.endTransmission();      // stop transmitting
 
   // step 2: wait for readings to happen
-  delay(70);                   // datasheet suggests at least 65 milliseconds
+  _delay_ms(70);                   // datasheet suggests at least 65 milliseconds
 
   // step 3: instruct sensor to return a particular echo reading
   Wire.beginTransmission(112); // transmit to device #112
@@ -49,7 +49,7 @@ void loop() {
     Serial.println(reading);   // print the reading
   }
 
-  delay(250);                  // wait a bit since people have to read the output :)
+  _delay_ms(250);                  // wait a bit since people have to read the output :)
 }
 
 
